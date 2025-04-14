@@ -214,11 +214,11 @@ def create_main_data_sheet():
     tr_machine_specs_active_last_col = write_machine_specs_table(COMPANY["TR"], ROW_START + GAP_HALF, COL_START, "Active")
     tr_machine_specs_spare_last_col = write_machine_specs_table(COMPANY["TR"], ROW_START + GAP_HALF, tr_machine_specs_active_last_col + GAP_SMALL, "Spare")
 
-    tt_total_machine_count, tt_machine_count_table_last_row, tt_machine_count_table_last_col = write_machine_count_table(COMPANY["TT"], ROW_START + GAP, tr_machine_count_table_last_col + GAP_SMALL)
+    tt_total_machine_count, tt_machine_count_table_last_row, _ = write_machine_count_table(COMPANY["TT"], ROW_START + GAP, tr_machine_count_table_last_col + GAP_SMALL)
     write_machine_summary_table(COMPANY["TT"], tt_total_machine_count["Grand Total"], tt_machine_count_table_last_row + GAP, tr_machine_count_table_last_col + GAP_SMALL)
     write_active_machines_table(COMPANY["TT"], tt_total_machine_count, tt_machine_count_table_last_row + GAP, tr_machine_count_table_last_col + GAP_BIG)
     tt_machine_specs_active_last_col = write_machine_specs_table(COMPANY["TT"], ROW_START + GAP_HALF, tr_machine_specs_spare_last_col + GAP_SMALL, "Active")
-    tt_machine_specs_spare_last_col = write_machine_specs_table(COMPANY["TT"], ROW_START + GAP_HALF, tt_machine_specs_active_last_col + GAP_SMALL, "Spare")
+    _ = write_machine_specs_table(COMPANY["TT"], ROW_START + GAP_HALF, tt_machine_specs_active_last_col + GAP_SMALL, "Spare")
 
     dim_holder = DimensionHolder(worksheet=DATA_SHEET)
     for col in range(DATA_SHEET.min_column, DATA_SHEET.max_column + 1):

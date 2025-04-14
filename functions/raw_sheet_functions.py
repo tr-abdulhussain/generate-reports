@@ -10,7 +10,7 @@ from google_functions import authenticate_google_services, create_google_sheet, 
 CURRENT_MONTH = datetime.datetime.now().strftime("%B")
 CURRENT_YEAR = datetime.datetime.now().strftime("%Y")
 
-SHARE_WITH_EMAIL = "abdul.hussain@tooltwist.com"
+SHARE_WITH_EMAIL = "infra@tooltwist.com"
 
 MAPPING_SHEET_ID = "1iiwUvw5QaRM6Hvq7uY8B5UnRvg45EICZDnQWITRxvrc"
 INITIAL_SHEET_NAME = f"Initial MACHINE REPORTS {CURRENT_MONTH} {CURRENT_YEAR}"

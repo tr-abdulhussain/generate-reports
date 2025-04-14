@@ -12,7 +12,7 @@ async def correct_asset_status(asset):
     patched = []
     requests_processed = 0
     max_requests_per_minute = 100
-    snipeit_link = "http://3.0.176.121"
+    snipeit_link = "https://inventory.twistresources.com/"
 
     async with aiohttp.ClientSession() as session:
         for tag, action in zip(asset[ASSET_TAG_COLUMN], asset[ACTIONS_COLUMN]):
@@ -22,9 +22,8 @@ async def correct_asset_status(asset):
                 requests_processed = 0
 
             encoded_tag = quote(tag)
-            get_id_url = f"{snipeit_link}/api/v1/hardware/bytag/{encoded_tag}"
-            # api_key = os.environ["SNIPEIT_API_KEY"]
-            api_key = os.environ["TEST_SNIPEIT_KEY"]
+            get_id_url = f"{snipeit_link}api/v1/hardware/bytag/{encoded_tag}"
+            api_key = os.environ["SNIPEIT_API_KEY"]
 
             headers = {
                 "Authorization": f"Bearer {api_key}",

@@ -67,6 +67,7 @@ def download_google_sheet(spreadsheet, file_name):
     print(f"Downloaded {file_name} to {file_path}")
 
     return file_path
+
 def share_google_sheet(file_path, to_email):
     _, _, mail_service = authenticate_google_services()
     file_name = os.path.basename(file_path)
@@ -84,8 +85,7 @@ def share_google_sheet(file_path, to_email):
         create_message = {
             'raw': encoded_message
         }
-        send_message = (mail_service.users().messages().send
-                        (userId="me", body=create_message).execute())
+        mail_service.users().messages().send(userId="me", body=create_message).execute()
         print(f"Sent an email to {to_email} with {os.path.splitext(file_name)[0]} attached")
     except HttpError as error:
         print(f"An error occurred: {error}")

@@ -1,4 +1,3 @@
-import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.chart import PieChart, Reference
 from openpyxl.chart.label import DataLabelList

@@ -43,5 +43,5 @@
    ```
 9. **Run Script:**
    ```bash
-   python3 generate-reports.py reports.csv
+   python3 functions/generate-reports.py reports.csv
    ```
